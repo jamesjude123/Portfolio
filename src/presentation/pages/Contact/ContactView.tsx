@@ -92,20 +92,14 @@ function ContactView() {
           <div className="pointer-events-none absolute -left-12 top-1/3 h-56 w-56 rounded-full bg-cinnamon-300/40 blur-3xl" />
           <div className="pointer-events-none absolute -right-12 bottom-1/4 h-56 w-56 rounded-full bg-clay-400/30 blur-3xl" />
 
-          {/* Photo area with fallback */}
+          {/* Photo area — real image with BASE_URL prefix for GitHub Pages */}
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-cinnamon-200/40 via-paper-100 to-clay-400/15">
-            {/* Fallback icon (shown when /me.jpg is missing — always visible since we don't have the image yet) */}
-            <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-cinnamon-500/60 bg-paper-50 text-cinnamon-700">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M20 21a8 8 0 1 0-16 0" />
-                </svg>
-              </div>
-              <p className="text-sm font-bold text-coal-900">
-                Save as <span className="text-cinnamon-700">public/me.jpg</span>
-              </p>
-            </div>
+            <img
+              src={`${import.meta.env.BASE_URL}me.jpg`}
+              alt="James Jude D. Bautista"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: 'center 18%' }}
+            />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-coal-900/5" />
           </div>
 

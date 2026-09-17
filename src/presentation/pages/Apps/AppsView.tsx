@@ -1,15 +1,18 @@
 // =====================================================================
 // Mercola / PAX — full-width tile with horizontal screenshot rail
 // =====================================================================
+// BASE_URL auto-resolves: '/' in dev, '/Portfolio_Website/' when deployed
+const BASE = import.meta.env.BASE_URL
+
 const paxScreens = [
-  { label: 'Pax Voice',      image: '/pax/03-voice.jpg',       alt: 'Pax Voice — real-time voice coach' },
-  { label: 'Home',           image: '/pax/02-home.jpg',        alt: 'PAX home dashboard' },
-  { label: 'Food Buddy',     image: '/pax/04-food-buddy.jpg',  alt: 'Food Buddy food logging' },
-  { label: 'Assessment',     image: '/pax/05-assessment.jpg',  alt: 'Wellness assessment' },
-  { label: 'My Health',      image: '/pax/06-my-health.jpg',   alt: 'My Health — results and reports' },
-  { label: 'Stride Strong',  image: '/pax/07-stride.jpg',      alt: 'Stride Strong movement tracking' },
-  { label: 'Shop',           image: '/pax/08-shop.jpg',        alt: 'Shop — supplements and lab tests' },
-  { label: 'Welcome',        image: '/pax/01-welcome.jpg',     alt: 'PAX welcome screen' },
+  { label: 'Pax Voice',      image: `${BASE}pax/03-voice.jpg`,       alt: 'Pax Voice — real-time voice coach' },
+  { label: 'Home',           image: `${BASE}pax/02-home.jpg`,        alt: 'PAX home dashboard' },
+  { label: 'Food Buddy',     image: `${BASE}pax/04-food-buddy.jpg`,  alt: 'Food Buddy food logging' },
+  { label: 'Assessment',     image: `${BASE}pax/05-assessment.jpg`,  alt: 'Wellness assessment' },
+  { label: 'My Health',      image: `${BASE}pax/06-my-health.jpg`,   alt: 'My Health — results and reports' },
+  { label: 'Stride Strong',  image: `${BASE}pax/07-stride.jpg`,      alt: 'Stride Strong movement tracking' },
+  { label: 'Shop',           image: `${BASE}pax/08-shop.jpg`,        alt: 'Shop — supplements and lab tests' },
+  { label: 'Welcome',        image: `${BASE}pax/01-welcome.jpg`,     alt: 'PAX welcome screen' },
 ]
 
 function Mercola() {
