@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 
 // =====================================================================
 // Types
@@ -8,7 +8,7 @@ interface ContactLink {
   label: string
   value: string
   external: boolean
-  icon: JSX.Element
+  icon: ReactElement
 }
 
 // =====================================================================
