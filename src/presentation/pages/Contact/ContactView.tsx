@@ -62,9 +62,18 @@ function ContactView() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // TODO: wire to real backend (Formspree, EmailJS, etc.)
-    console.log('Contact form submitted:', { name, email, message })
-    alert(`Thanks ${name}! Your message has been recorded (backend not yet connected).`)
+
+    // Compose a mailto link with pre-filled subject + body
+    const to = 'jamesjudebautista@gmail.com'
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`)
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n— Sent from portfolio site`
+    )
+
+    // Opens the user's email client (Gmail in browser, Mail on Mac/iOS, etc.)
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`
+
+    // Reset the form after triggering the mail client
     setName('')
     setEmail('')
     setMessage('')
@@ -143,10 +152,11 @@ function ContactView() {
             </a>
           ))}
 
-          {/* Download CV — special styling */}
+          {/* View CV — opens Google Drive in new tab */}
           <a
-            href="cv.pdf"
-            download
+            href="https://drive.google.com/file/d/1EnlXDUOV-F9rLo2czbklgAmdi55LDtvj/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-4 rounded-3xl border border-cinnamon-700 bg-gradient-to-br from-cinnamon-600 to-clay-600 p-5 text-paper-50 shadow-warm-glow"
           >
             <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-paper-50/20 text-paper-50">
@@ -160,7 +170,7 @@ function ContactView() {
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-paper-50/80">
                 Resume
               </p>
-              <p className="text-sm font-bold text-paper-50">Download CV</p>
+              <p className="text-sm font-bold text-paper-50">View CV</p>
             </div>
             <span className="text-paper-50/80 transition group-hover:translate-x-1">↓</span>
           </a>

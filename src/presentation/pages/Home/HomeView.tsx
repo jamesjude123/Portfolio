@@ -55,7 +55,7 @@ function HomeView() {
                     </div>
                 </div>
 
-                {/* ============ CURRENTLY @ DOST TILE (dark, rich) ============ */}
+                {/* ============ CURRENTLY @ MERCOLA TILE (dark, rich) ============ */}
                 <div className="relative col-span-12 flex flex-col overflow-hidden rounded-3xl border border-coal-800 bg-coal-900 p-7 text-paper-50 shadow-tile lg:col-span-4">
                     {/* Decorative blur orb */}
                     <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-cinnamon-600/25 blur-3xl" />
@@ -66,45 +66,45 @@ function HomeView() {
                         <div className="flex items-start justify-between gap-3">
                             <div>
                                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-cinnamon-300">Currently</p>
-                                <p className="mt-2 text-2xl font-black tracking-tight text-paper-50">Technical Lead</p>
-                                <p className="mt-0.5 text-sm font-semibold text-paper-200">Department of Science &amp; Technology</p>
-                                <p className="font-mono text-[11px] text-paper-400">Full-Stack · DevOps · Platform · 🇵🇭</p>
+                                <p className="mt-2 text-2xl font-black tracking-tight text-paper-50">Full-Stack Developer</p>
+                                <p className="mt-0.5 text-sm font-semibold text-paper-200">Mercola Consulting Services</p>
+                                <p className="font-mono text-[11px] text-paper-400">Android · iOS · Backend APIs · 🇵🇭</p>
                             </div>
                             <span className="flex-none rounded-full border border-cinnamon-700 bg-cinnamon-600/20 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cinnamon-300">
-                                Mar 2025
+                                Mar 2026
                             </span>
                         </div>
 
                         {/* Role summary */}
                         <p className="mt-4 text-[13px] leading-relaxed text-paper-300">
-                            Lead a cross-functional team building and operating the on-prem platform behind multiple government applications. Report directly to the Director; own quarterly OKR planning and the technical roadmap.
+                            Building PAX — Mercola Health Coach 2.0, a consumer health app centred on a voice-first AI coach. Shipping feature modules across the app: real-time voice, camera-based food logging, health assessments, and lab reports.
                         </p>
 
                         {/* Mini detail stats — 3 columns */}
                         <div className="mt-4 grid grid-cols-3 gap-2">
                             <div className="rounded-xl border border-coal-800 bg-coal-950/40 px-3 py-2 text-center">
-                                <p className="text-lg font-black leading-none text-paper-50">86</p>
-                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Team led*</p>
+                                <p className="text-lg font-black leading-none text-paper-50">20+</p>
+                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Modules shipped</p>
                             </div>
                             <div className="rounded-xl border border-coal-800 bg-coal-950/40 px-3 py-2 text-center">
-                                <p className="text-lg font-black leading-none text-paper-50">1</p>
-                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Reports to Dir.</p>
+                                <p className="text-lg font-black leading-none text-paper-50">100%</p>
+                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Compose UI</p>
                             </div>
                             <div className="rounded-xl border border-coal-800 bg-coal-950/40 px-3 py-2 text-center">
-                                <p className="text-lg font-black leading-none text-paper-50">∞</p>
-                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Uptime owned</p>
+                                <p className="text-lg font-black leading-none text-paper-50">AI</p>
+                                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.15em] text-paper-400">Voice coach</p>
                             </div>
                         </div>
-                        <p className="mt-1.5 font-mono text-[8px] text-paper-500">*4 engineers · 4 QA · 78 OJT trainees</p>
+                        <p className="mt-1.5 font-mono text-[8px] text-paper-500">*voice · food logging · assessments · lab reports · commerce</p>
 
                         {/* Tech stack pills */}
                         <div className="mt-4 flex flex-wrap gap-1.5">
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">React · TS</span>
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Node · TS</span>
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Kubernetes</span>
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Helm</span>
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Terraform</span>
-                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">PostgreSQL</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Kotlin</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Compose</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">LiveKit</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">CameraX</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Hilt</span>
+                            <span className="rounded-full border border-coal-700 bg-coal-800 px-2.5 py-1 font-mono text-[10px] font-semibold text-paper-200">Clean Arch</span>
                         </div>
 
                         {/* Footer — open to relocation */}

@@ -64,10 +64,11 @@ function Header() {
             </svg>
           </a>
 
-          {/* CV button — gradient, arrow character */}
+          {/* CV button — opens Google Drive CV in new tab */}
           <a
-            href="cv.pdf"
-            download
+            href="https://drive.google.com/file/d/1EnlXDUOV-F9rLo2czbklgAmdi55LDtvj/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cinnamon-600 to-clay-600 px-3 py-1.5 text-[10px] font-bold text-white shadow-warm-glow transition hover:scale-[1.02] sm:gap-2 sm:px-4 sm:py-2 sm:text-xs"
           >
             <span>CV</span>

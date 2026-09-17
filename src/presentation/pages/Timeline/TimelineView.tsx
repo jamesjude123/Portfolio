@@ -10,12 +10,19 @@ interface TimelineEntry {
 
 const timeline: TimelineEntry[] = [
     {
-        dateRange: 'Mar 2025 — Now',
-        duration: 'Current · 1y+',
+        dateRange: 'Mar 2026 — Now',
+        duration: 'Current',
+        company: 'Mercola Consulting Services · 🇵🇭',
+        role: 'Full-Stack Developer · Android · iOS · Backend APIs',
+        description: 'Building PAX — Mercola Health Coach 2.0. Shipped 20+ feature modules in Kotlin on a 100% Jetpack Compose UI: a voice-first AI coach on LiveKit, CameraX food logging, health assessments, and lab reports, on MVVM + Clean Architecture with Hilt.',
+        isCurrent: true
+    },
+    {
+        dateRange: 'Mar 2025 — Mar 2026',
+        duration: '1y',
         company: 'Department of Science & Technology · 🇵🇭',
         role: 'Technical Lead · Full-Stack · DevOps · Platform',
-        description: 'Leads a cross-functional team of 4 engineers, 4 QA, and 78 OJT trainees. Defines full-stack standards, designs CI/CD, operates on-prem K8s — Jenkins, Helm, Terraform, RBAC, Prometheus/Grafana, Postgres.',
-        isCurrent: true
+        description: 'Led a cross-functional team of 4 engineers, 4 QA, and 78 OJT trainees. Defined full-stack standards, designed CI/CD, operated on-prem K8s — Jenkins, Helm, Terraform, RBAC, Prometheus/Grafana, Postgres.',
     },
     {
         dateRange: 'Jan 2024 — Feb 2025',
@@ -90,7 +97,7 @@ function TimelineView() {
             </h2>
 
             <p className="mt-2 max-w-2xl text-sm text-coal-500">
-                8 roles across 3 countries, Each with the dates, title, and what was shipped there.
+                9 roles across 3 countries. Each with the dates, title, and what was shipped there.
             </p>
 
                  {/* ============ TIMELINE TILE ============ */}
