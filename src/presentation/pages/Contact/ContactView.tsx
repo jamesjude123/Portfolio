@@ -60,23 +60,47 @@ function ContactView() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  function handleSubmit(e: React.FormEvent) {
+  const [submitting, setSubmitting] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    setSubmitting(true)
 
-    // Compose a mailto link with pre-filled subject + body
-    const to = 'jamesjudebautista@gmail.com'
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n— Sent from portfolio site`
-    )
+    try {
+      // Formsubmit.co — free, no signup, no backend needed.
+      // First submission triggers a confirmation email to your gmail — click the link
+      // in that email ONCE, then all future submissions arrive automatically.
+      const res = await fetch('https://formsubmit.co/ajax/jamesjudebautista@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio contact from ${name}`,
+          _template: 'table',
+        }),
+      })
 
-    // Opens the user's email client (Gmail in browser, Mail on Mac/iOS, etc.)
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`
-
-    // Reset the form after triggering the mail client
-    setName('')
-    setEmail('')
-    setMessage('')
+      if (res.ok) {
+        alert(`Thanks ${name}! Your message was sent — I'll reply soon.`)
+        setName('')
+        setEmail('')
+        setMessage('')
+      } else {
+        throw new Error(`HTTP ${res.status}`)
+      }
+    } catch (err) {
+      console.error('Contact form error:', err)
+      alert(
+        `Sorry, something went wrong. Please email me directly at jamesjudebautista@gmail.com`
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -224,9 +248,10 @@ function ContactView() {
             </label>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cinnamon-600 to-clay-600 px-4 py-2.5 text-sm font-bold text-white shadow-warm-glow transition hover:scale-[1.02]"
+              disabled={submitting}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cinnamon-600 to-clay-600 px-4 py-2.5 text-sm font-bold text-white shadow-warm-glow transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
             >
-              Send →
+              {submitting ? 'Sending…' : 'Send →'}
             </button>
           </div>
         </form>
