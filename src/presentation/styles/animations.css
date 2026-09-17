@@ -1,0 +1,17 @@
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pause the marquee when hovered */
+.animate-marquee-x:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  animation: marquee-x 55s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}

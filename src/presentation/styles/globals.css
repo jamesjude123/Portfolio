@@ -1,0 +1,10 @@
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+h1, h2 {
+  font-family: "Archivo Black", "Archivo", "Inter", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+html, body {
+  overflow-x: hidden;
+}
