@@ -1,7 +1,18 @@
+import { useState } from 'react'
+
 // =====================================================================
 // Shared building blocks
 // =====================================================================
 const BASE = import.meta.env.BASE_URL
+
+// Extract the "v" param from a YouTube URL like https://www.youtube.com/watch?v=XXX
+function getYoutubeId(url: string): string | null {
+  try {
+    return new URL(url).searchParams.get('v')
+  } catch {
+    return null
+  }
+}
 
 function Pill({ children, accent }: { children: React.ReactNode; accent?: boolean }) {
   return accent ? (
@@ -23,28 +34,44 @@ interface VideoThumbProps {
   caption?: string
 }
 function VideoThumb({ href, imgSrc, imgAlt, label, caption }: VideoThumbProps) {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoId = getYoutubeId(href)
+
   return (
     <figure className="w-[280px] flex-none snap-start sm:w-[340px]">
-      <a
-        className="group block overflow-hidden rounded-2xl border border-paper-300 bg-paper-50 shadow-sm"
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Watch ${label} on YouTube`}
-      >
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
-          <img src={imgSrc} alt={imgAlt} loading="lazy" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-coal-950/70 via-transparent to-transparent" />
-          <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-paper-50/40 bg-coal-950/55 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-            <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5" fill="#FAF7F2" aria-hidden="true">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </span>
-          <p className="absolute bottom-2 left-3 right-3 text-[13px] font-black uppercase leading-tight text-paper-50">
-            {label}
-          </p>
-        </div>
-      </a>
+      <div className="overflow-hidden rounded-2xl border border-paper-300 bg-paper-50 shadow-sm">
+        {isPlaying && videoId ? (
+          // ===== Embedded YouTube iframe (autoplays after click) =====
+          <div className="relative aspect-[16/9] w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title={imgAlt}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          // ===== Thumbnail with play button (initial state) =====
+          <button
+            type="button"
+            onClick={() => setIsPlaying(true)}
+            className="group relative block aspect-[16/9] w-full overflow-hidden"
+            aria-label={`Play ${label}`}
+          >
+            <img src={imgSrc} alt={imgAlt} loading="lazy" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-coal-950/70 via-transparent to-transparent" />
+            <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-paper-50/40 bg-coal-950/55 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+              <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5" fill="#FAF7F2" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            <p className="absolute bottom-2 left-3 right-3 text-[13px] font-black uppercase leading-tight text-paper-50">
+              {label}
+            </p>
+          </button>
+        )}
+      </div>
       {caption && (
         <figcaption className="mt-2 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-coal-500">
           {caption}
